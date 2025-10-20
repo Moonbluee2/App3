@@ -1,0 +1,33 @@
+
+ion-content {
+  --background: #6e6099ff; /* lavanda muy claro */
+  color: #2f2a48;
+  font-family: 'Nunito', sans-serif;
+}
+
+ion-title {
+    color: #000000ff;
+  font-family: 'Nunito', sans-serif;
+}
+
+ion-card {
+  margin-bottom: 12px;
+  transition: transform 0.2s;
+  cursor: pointer;
+  padding: 20px 20px;
+
+}
+
+ion-card:hover {
+  transform: scale(1.02);
+}
+
+ion-card-title {
+  color: #cf4040ff; /* lavanda más fuerte */
+  font-weight: 700;
+}
+
+ion-card-subtitle {
+  color: #888888ff;
+  font-weight: 500;
+}
