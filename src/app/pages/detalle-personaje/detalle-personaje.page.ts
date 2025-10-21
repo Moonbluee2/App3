@@ -13,7 +13,6 @@ import { Personaje } from '../../interfaces/personaje';
   styleUrls: ['./detalle-personaje.page.scss'],
 })
 export class DetallePersonajePage {
-  // 🔹 Inyección moderna (sin constructor)
   private route = inject(ActivatedRoute);
   private personajeService = inject(PersonajeService);
 

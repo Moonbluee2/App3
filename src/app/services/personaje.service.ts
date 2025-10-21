@@ -6,7 +6,7 @@ import { Personaje } from '../interfaces/personaje';
 })
 export class PersonajeService {
 
-  // 🔹 Arreglo de personajes Marvel (solo se muestra parte por espacio)
+  // Arreglo de personajes Marvel (solo se muestra parte por espacio)
   private personajes: Personaje[] = [
     {
         nombre: "Tony Stark",

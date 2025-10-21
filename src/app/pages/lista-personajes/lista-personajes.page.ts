@@ -35,7 +35,6 @@ export class ListaPersonajesPage {
     this.personajesPaginados = this.personajes.slice(inicio, fin);
   }
 
-  // ✅ ahora solo muestra la siguiente página, sin duplicar los anteriores
   cargarMas() {
     if (this.paginaActual < this.totalPaginas) {
       this.paginaActual++;

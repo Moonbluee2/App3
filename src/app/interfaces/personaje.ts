@@ -3,5 +3,4 @@ export interface Personaje {
   alias: string;
   equipo: string;
   poderPrincipal: string;
-  primeraAparicion: number; // Año de primera aparición
-}
+  primeraAparicion: number; 

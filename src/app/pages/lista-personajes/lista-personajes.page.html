@@ -6,7 +6,7 @@
 
 <ion-content class="ion-padding">
 
-   <!-- 🔹 Contenedor tipo grid con 2 columnas -->
+   <!-- Contenedor tipo grid con 2 columnas -->
   <div class="grid-container">
     <ion-card *ngFor="let p of personajesPaginados; let i = index" (click)="verDetalle(i)">
       <ion-card-header>
@@ -16,14 +16,14 @@
     </ion-card>
   </div>
 
-  <!-- 🔹 Botón para cargar más -->
+  <!-- Botón para cargar más -->
   <div class="boton-cargar">
     <ion-button expand="block" color="secondary" (click)="cargarMas()" [disabled]="paginaActual >= totalPaginas">
       Cargar más personajes
     </ion-button>
   </div>
 
-  <!-- 🔹 Paginación -->
+  <!-- Paginación -->
   <div class="paginacion">
     <ion-button *ngFor="let num of [].constructor(totalPaginas); let i = index"
                 (click)="mostrarPagina(i + 1)"
