@@ -5,10 +5,31 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card *ngFor="let p of personajes; let i = index" (click)="verDetalle(i)">
-    <ion-card-header>
-      <ion-card-title>{{ p.alias }}</ion-card-title>
-      <ion-card-subtitle>{{ p.nombre }}</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+
+   <!-- 🔹 Contenedor tipo grid con 2 columnas -->
+  <div class="grid-container">
+    <ion-card *ngFor="let p of personajesPaginados; let i = index" (click)="verDetalle(i)">
+      <ion-card-header>
+        <ion-card-title>{{ p.alias }}</ion-card-title>
+        <ion-card-subtitle>{{ p.nombre }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <!-- 🔹 Botón para cargar más -->
+  <div class="boton-cargar">
+    <ion-button expand="block" color="secondary" (click)="cargarMas()" [disabled]="paginaActual >= totalPaginas">
+      Cargar más personajes
+    </ion-button>
+  </div>
+
+  <!-- 🔹 Paginación -->
+  <div class="paginacion">
+    <ion-button *ngFor="let num of [].constructor(totalPaginas); let i = index"
+                (click)="mostrarPagina(i + 1)"
+                [color]="paginaActual === (i + 1) ? 'primary' : 'medium'">
+      {{ i + 1 }}
+    </ion-button>
+  </div>
+
 </ion-content>

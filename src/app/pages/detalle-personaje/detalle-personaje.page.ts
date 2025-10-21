@@ -12,14 +12,15 @@ import { Personaje } from '../../interfaces/personaje';
   templateUrl: './detalle-personaje.page.html',
   styleUrls: ['./detalle-personaje.page.scss'],
 })
-export class DetallePersonajePage implements OnInit {
+export class DetallePersonajePage {
 
   personaje?: Personaje;
 
   constructor(private route: ActivatedRoute, private personajeService: PersonajeService) {}
 
-  ngOnInit() {
+  ionViewWillEnter() {
     const indice = Number(this.route.snapshot.paramMap.get('id'));
     this.personaje = this.personajeService.getPersonaje(indice);
+    console.log('👁️ Entrando a detalle del personaje', this.personaje?.alias);
   }
 }
