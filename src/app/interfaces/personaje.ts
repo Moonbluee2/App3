@@ -4,3 +4,4 @@ export interface Personaje {
   equipo: string;
   poderPrincipal: string;
   primeraAparicion: number; 
+}
