@@ -55,8 +55,8 @@ ion-card-subtitle {
 
 @media (max-width: 768px) {
   .grid-container {
-    grid-template-columns: 1fr; /* ✅ una sola columna */
-    width: 95%; /* ocupa casi todo el ancho */
+    grid-template-columns: 1fr; 
+    width: 95%; 
     gap: 14px;
   }
 

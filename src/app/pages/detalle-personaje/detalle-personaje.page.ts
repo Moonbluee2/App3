@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
@@ -13,14 +13,15 @@ import { Personaje } from '../../interfaces/personaje';
   styleUrls: ['./detalle-personaje.page.scss'],
 })
 export class DetallePersonajePage {
+  // 🔹 Inyección moderna (sin constructor)
+  private route = inject(ActivatedRoute);
+  private personajeService = inject(PersonajeService);
 
   personaje?: Personaje;
-
-  constructor(private route: ActivatedRoute, private personajeService: PersonajeService) {}
 
   ionViewWillEnter() {
     const indice = Number(this.route.snapshot.paramMap.get('id'));
     this.personaje = this.personajeService.getPersonaje(indice);
-    console.log('👁️ Entrando a detalle del personaje', this.personaje?.alias);
+    console.log(' Entrando a detalle del personaje', this.personaje?.alias);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -7,19 +7,20 @@ import { Personaje } from '../../interfaces/personaje';
 
 @Component({
   selector: 'app-lista-personajes',
-  standalone: true,  
+  standalone: true,
   imports: [IonicModule, CommonModule],
   templateUrl: './lista-personajes.page.html',
   styleUrls: ['./lista-personajes.page.scss'],
 })
 export class ListaPersonajesPage {
+  private personajeService = inject(PersonajeService);
+  private router = inject(Router);
+
   personajes: Personaje[] = [];
-  personajesPorPagina = 10; // Muestra 10 personajes por página (2 filas de 5)
+  personajesPorPagina = 10;
   paginaActual = 1;
   totalPaginas = 0;
   personajesPaginados: Personaje[] = [];
-
-  constructor(private personajeService: PersonajeService, private router: Router) {}
 
   ionViewWillEnter() {
     this.personajes = this.personajeService.getPersonajes();
@@ -34,12 +35,11 @@ export class ListaPersonajesPage {
     this.personajesPaginados = this.personajes.slice(inicio, fin);
   }
 
+  // ✅ ahora solo muestra la siguiente página, sin duplicar los anteriores
   cargarMas() {
     if (this.paginaActual < this.totalPaginas) {
       this.paginaActual++;
-      const inicio = 0;
-      const fin = this.paginaActual * this.personajesPorPagina;
-      this.personajesPaginados = this.personajes.slice(inicio, fin);
+      this.mostrarPagina(this.paginaActual);
     }
   }
 
